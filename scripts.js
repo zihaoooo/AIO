@@ -93,7 +93,7 @@ function draw(dataSet) {
     
 
 
-    d3.json('https://io.adafruit.com/api/v2/2012zhangzihao/feeds/ccus.' + dataSet + '/data?start_time=' + startTime + '&end_time=' + endTime + '&limit=100', function (raw) {
+    d3.json('https://io.adafruit.com/api/v2/2012zhangzihao/feeds/ccus.' + dataSet + '/data?start_time=' + startTime + '&end_time=' + endTime + '&limit=1000', function (raw) {
 
         var data = raw.filter(function (d) {
             if (isNaN(d.value)) {
@@ -121,38 +121,38 @@ function draw(dataSet) {
         x.domain([data[data.length - 1].time, data[0].time]);
         y.domain([domainMin, domainMax]);
 
-//        g.selectAll(".bar")
-//            .data(data)
-//            .enter().append("rect")
-//            .attr("class", "bar")
-//            .attr("x", function (d) {
-//                return x(d.time);
-//            })
-//            .attr("width", (width / data.length))
-//            .attr("y", function (d) {
-//                return y(d.value);
-//            })
-//            .attr("height", function (d) {
-//                return height - y(d.value);
-//            })
-//            .on("mouseover", function (d) {
-//                div.transition()
-//                    .duration(50)
-//                    .style("opacity", .9);
-//                div.html("<strong>Date:</strong> " +
-//                        formatDate(d.time) + "<br/>" +
-//                        "<strong>Time:</strong> " +
-//                        formatTime(d.time) +
-//
-//                        "<br/>" + "<strong>Value:</strong> " + d.value)
-//                    .style("left", (d3.event.pageX + 10) + "px")
-//                    .style("top", (d3.event.pageY - 30) + "px");
-//            })
-//            .on("mouseout", function (d) {
-//                div.transition()
-//                    .duration(500)
-//                    .style("opacity", 0);
-//            });
+        g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function (d) {
+                return x(d.time);
+            })
+            .attr("width", (width / data.length))
+            .attr("y", function (d) {
+                return y(d.value);
+            })
+            .attr("height", function (d) {
+                return height - y(d.value);
+            })
+            .on("mouseover", function (d) {
+                div.transition()
+                    .duration(50)
+                    .style("opacity", .9);
+                div.html("<strong>Date:</strong> " +
+                        formatDate(d.time) + "<br/>" +
+                        "<strong>Time:</strong> " +
+                        formatTime(d.time) +
+
+                        "<br/>" + "<strong>Value:</strong> " + d.value)
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY - 30) + "px");
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
         g.selectAll("dot")
             .data(data)
