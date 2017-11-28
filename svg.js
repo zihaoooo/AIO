@@ -1,4 +1,4 @@
-$("#svgContainer").load("/liveDrawing.svg");
+$("#svgContainer").load("https://github.com/zihaoooo/AIO/blob/master/liveDrawing.svg");
 
 $(document).ready(function () {
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
                 .text(data.value + " F°")
                 .attr("opacity", "0")
                 .transition()
-//                .ease(d3.easeSin)
+                //                .ease(d3.easeSin)
                 .duration(1500)
                 .attr("opacity", "1")
                 .attr("font-size", data.value / 2)
