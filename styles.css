@@ -1,8 +1,31 @@
 Body {
     font-family: Helvetica, sans-serif;
     font-size: 10pt;
-    
-    
+}
+
+.jumbotron {
+    padding: 1rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #cfcfcf;
+    border-radius: .3rem;
+    color: white;
+}
+
+.scaling-svg-container {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 100%;
+    /* over-ride this inline for aspect ratio other than square */
+}
+
+.scaling-svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
 
 .bar {
@@ -61,56 +84,209 @@ div.dataValue {
     pointer-events: none;
 }
 
+
 /* The switch - the box around the slider */
+
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
+
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+
+.switch input {
+    display: none;
+}
+
 
 /* The slider */
+
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+input:checked+.slider {
+    background-color: #2196F3;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
-.liveMenu{
+.liveMenu {
     display: inline-block;
+}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button-default {
+    display: inline-block;
+    cursor: pointer;
+    color: gray;
+    background-color: white;
+}
+
+.button-default:hover {
+    background-color: #006699;
+    color: white;
+    opacity: 1;
+}
+
+.selection {
+    padding-bottom: 8px;
+}
+
+path#ac {
+    stroke: #f89838;
+}
+
+path#acarea {
+    fill: white;
+}
+
+path#acarea:hover {
+    fill: #f89838;
+    opacity: 0.9;
+}
+
+path#room {
+    stroke: #99ca3c;
+}
+
+path#roomarea {
+    fill: white;
+}
+
+path#roomarea:hover {
+    fill: #99ca3c;
+    opacity: 0.9;
+}
+
+path#yard {
+    stroke: #006699;
+}
+
+path#yardarea {
+    fill: white;
+}
+
+path#yardarea:hover {
+    fill: #006699;
+    opacity: 0.9;
+}
+
+#acCircle {
+    fill: #f89838;
+}
+
+#roomCircle {
+    fill: #99ca3c;
+}
+
+#yardCircle {
+    fill: #006699;
+}
+
+
+/* Modals */
+
+#screen {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.modal {
+    display: none;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 150px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 100;
+    padding: 30px;
+    font-family: Helvetica, sans-serif;
+}
+
+.modal .close-button {
+    color: #ccc;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    line-height: 30px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal .close-button:hover {
+    color: #bbb;
+}
+
+.modal-body img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.button-on {
+    background-color: #006699;
+    color: white;
+}
+
+.modal-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center
+}
+
+.help-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: right;
 }

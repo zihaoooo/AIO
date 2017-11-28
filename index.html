@@ -1,59 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <title>Sensing Station</title>
+    <meta charset="UTF-8">
+    <title>What does it take to keep me warm</title>
 
-    <!-- Link to d3 -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
-    <!-- Custom styles -->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
 
 </head>
 
 <body>
-    <div><select id="dataSet" onchange="changeData()">
-  <option value="temperature">Temperature</option>
-  <option value="humidity" selected="selected">Humidity</option>
-  <option value="sound">Sound</option>
-</select>
+    <div id='screen'></div>
+    <div class="jumbotron text-center">
+        <h1>What Does It Take To Keep Me Warm?</h1>
+        <p>DIY sensing system to monitor home energy efficiency</p>
     </div>
-    
-<div> <div class = "liveMenu"> Live </div>
-    <div class = "liveMenu">
-    <label class="switch">
-  <input type="checkbox" id ="liveToggle">
-  <span class="slider round"></span>  
-    </label></div></div>
-    
-    <div id="startTime">
-        <form action="/action_page.php">
-  Start Time:
-  <input type="datetime-local" name="bdaytime">
- End Time:
-  <input type="datetime-local" name="bdaytime">
-    Resolution:
-<input type="number" name="quantity" min="200" max="1000">
-  <input type="button" id="selectData">
-</form>
-    </div>
-    <div id="part-one">
-        <h1></h1>
-        <p></p>
-        <svg id="bar-chart" width="960" height="500"></svg>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <h3>Live Data</h3>
+                </div>
+                <div id="svgContainer"></div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="help-container"> <button type='button' class='button-default' id="help">Help</button></div>
+                <h3>Historical Data</h3>
+                <div id="line-graph">
+                    <div class="selection">
+                        Display data from:
+                        <select id="select">
+            <option value="1">1 Hour Ago</option>
+            <option value="2" selected="selected">2 Hours Ago</option>
+            <option value="4">4 Hours Ago</option>
+            <option value="8">8 Hours Ago</option>
+            <option value="12">12 Hours Ago</option>
+            <option value="24">1 Day Ago</option>
+                        </select>
+                    </div>
+                    <div class="selection">Or filter data from: </div>
+                    <div class="selection" id="timeSelect">
+                        <input type="datetime-local" name="startTime"> to
+                        <input type="datetime-local" name="endTime">
+                        <input class="button-default" type="button" name="go" value="Go">
+                    </div>
+                    <div>
+                        <svg id="line-chart" width="550" height="350"></svg>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-    <div id="container">
+
+    <!-- "About this map" modal (hidden by default) -->
+    <div class='modal'>
+        <div class='modal-body'>
+
+            <img class="mySlides" src="help/help01w.png">
+            <img class="mySlides" src="help/help02w.png">
+            <img class="mySlides" src="help/help03w.png">
+            <div class="modal-nav">
+                <button class="button-default" onclick="plusDivs(-1)">&#10094; Prev</button>
+                <button class="button-default image" onclick="currentDiv(1)">1</button>
+                <button class="button-default image" onclick="currentDiv(2)">2</button>
+                <button class="button-default image" onclick="currentDiv(3)">3</button>
+                <button class="button-default" onclick="plusDivs(1)">Next &#10095;</button>
+            </div>
+        </div>
+        <button class='close-button'>&times;</button>
     </div>
+
+
+
+
+
+
 
 
 </body>
-
-<!-- Custom javascript (d3) -->
-<script src="scripts.js"></script>
+<script src="weather.js"></script>
+<script src="svg.js"></script>
+<script src="modal.js"></script>
 
 </html>
