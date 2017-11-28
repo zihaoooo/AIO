@@ -1,4 +1,4 @@
-$("#svgContainer").load("/images/liveDrawing.svg");
+//$("#svgContainer").load("images/liveDrawing.svg");
 
 $(document).ready(function () {
 
