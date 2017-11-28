@@ -1,4 +1,4 @@
-$("#svgContainer").load("https://github.com/zihaoooo/AIO/blob/master/liveDrawing.svg");
+$("#svgContainer").load("/images/liveDrawing.svg");
 
 $(document).ready(function () {
 
