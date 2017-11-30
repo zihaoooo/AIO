@@ -146,24 +146,7 @@ input:checked+.slider:before {
     display: inline-block;
 }
 
-button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
 
-.button-default {
-    display: inline-block;
-    cursor: pointer;
-    color: gray;
-    background-color: white;
-}
-
-.button-default:hover {
-    background-color: #006699;
-    color: white;
-    opacity: 1;
-}
 
 .selection {
     padding-bottom: 8px;
@@ -271,7 +254,7 @@ path#yardarea:hover {
 }
 
 .button-on {
-    background-color: #006699;
+    background-color: #868e96;
     color: white;
 }
 
@@ -289,4 +272,11 @@ path#yardarea:hover {
     right: 0;
     margin: 0 auto;
     text-align: right;
+}
+
+.btn-outline-secondary:active{
+    box-shadow: none !important;
+}
+.btn-outline-secondary:focus{
+    box-shadow: none !important;
 }
