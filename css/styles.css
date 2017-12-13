@@ -69,7 +69,7 @@ text {
 .line {
     fill: none;
     stroke: #006699;
-    stroke-width: 1.5px;
+    stroke-width: 1.2px;
 }
 
 div.dataValue {
@@ -146,8 +146,6 @@ input:checked+.slider:before {
     display: inline-block;
 }
 
-
-
 .selection {
     padding-bottom: 8px;
 }
@@ -180,15 +178,6 @@ path#roomarea:hover {
 
 path#yard {
     stroke: #006699;
-}
-
-path#yardarea {
-    fill: white;
-}
-
-path#yardarea:hover {
-    fill: #006699;
-    opacity: 0.9;
 }
 
 #acCircle {
@@ -274,9 +263,10 @@ path#yardarea:hover {
     text-align: right;
 }
 
-.btn-outline-secondary:active{
+.btn-outline-secondary:active {
     box-shadow: none !important;
 }
-.btn-outline-secondary:focus{
+
+.btn-outline-secondary:focus {
     box-shadow: none !important;
 }
